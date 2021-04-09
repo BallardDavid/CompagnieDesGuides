@@ -54,7 +54,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 $route['guides/creer'] = 'guides/creer';
 $route['guides'] = 'guides/tous';
-$route['guides/creer'] = 'guides/creer';
 $route['guides/modifier/(:any)'] = 'guides/modifier/$1';
 $route['guides/effacer/(:any)'] = 'guides/effacer/$1';
 
@@ -65,7 +64,14 @@ $route['abris'] = 'abris/tous';
 $route['abris/modifier/(:any)'] = 'abris/modifier/$1';
 $route['abris/effacer/(:any)'] = 'abris/effacer/$1';
 
-$route['employes'] = 'employes/tous';
+/* Sommets Routes */
+
+$route['sommets/creer'] = 'sommets/creer';
+$route['sommets'] = 'sommets/tous';
+$route['sommets/modifier/(:any)'] = 'sommets/modifier/$1';
+$route['sommets/effacer/(:any)'] = 'sommets/effacer/$1';
+
+/* Autres Routes */
 $route['default_controller'] = 'home/view';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

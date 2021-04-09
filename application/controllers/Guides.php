@@ -49,6 +49,7 @@ class Guides extends CI_Controller{
   }
 
   public function modifier($id){
+    $this->load->model('Guides_model');
     $this->load->helper('form');
     $this->load->library('form_validation');
 
@@ -72,6 +73,7 @@ class Guides extends CI_Controller{
     $this->load->view('footer');
   }
   public function effacer($id){
+    $this->load->model('Guides_model');
     $this->Guides_model->delete($id);
     $data['guides'] = $this->Guides_model->getAll();
     $data['titre'] = 'Les guides sont';

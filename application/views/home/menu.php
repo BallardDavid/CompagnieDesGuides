@@ -6,5 +6,8 @@
   echo '<a href="index.php/guides">Tous</a><br>';
   echo '<a href="index.php/guides/creer">Ajouter un guide</a><br>';
 
+  echo '<h2>Les Sommets : </h2>';
+  echo '<a href="index.php/sommets">Tous</a><br>';
+  echo '<a href="index.php/sommets/creer">Ajouter un sommet</a><br>';
 
 ?>
