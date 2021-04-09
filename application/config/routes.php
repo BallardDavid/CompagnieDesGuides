@@ -52,11 +52,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 $route['guides/creer'] = 'guides/creer';
 $route['guides'] = 'guides/tous';
-$route['employes/creer'] = 'employes/creer';
-$route['employes/competences'] = 'employes/withCompetences';
-$route['employes/(:any)'] = 'employes/parId/$1';
+$route['guides/creer'] = 'guides/creer';
+$route['guides/modifier/(:any)'] = 'guides/modifier/$1';
 $route['employes'] = 'employes/tous';
-$route['about'] = 'home/view/about';
 $route['default_controller'] = 'home/view';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

@@ -6,9 +6,10 @@
   </head>
   <body>
     <?php
+      $home='http://localhost:80/web/CompagnieDesGuides/';
       echo '<header>';
 
-      echo '<a href="index.php">Home</a>';
+      echo '<a href="'.$home.'index.php">Home</a>';
 
       echo '</header>';
     ?>
