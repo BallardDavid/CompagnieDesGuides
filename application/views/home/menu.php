@@ -16,5 +16,8 @@
   echo '<a href="index.php/vallees">Tous</a><br>';
   echo '<a href="index.php/vallees/creer">Ajouter un sommet</a><br>';
 
+  echo '<h2>Les Ascensions : </h2>';
+  echo '<a href="index.php/ascensions">Toutes</a><br>';
+  echo '<a href="index.php/ascensions/creer">Ajouter une ascension</a><br>';
 
 ?>

@@ -79,6 +79,14 @@ $route['vallees'] = 'vallees/tous';
 $route['vallees/modifier/(:any)'] = 'vallees/modifier/$1';
 $route['vallees/effacer/(:any)'] = 'vallees/effacer/$1';
 
+/* Ascensions Routes */
+
+$route['ascensions/creer'] = 'ascensions/creer';
+$route['ascensions'] = 'ascensions/tous';
+$route['ascensions/modifier/(:any)'] = 'ascensions/modifier/$1';
+$route['ascensions/effacer/(:any)'] = 'ascensions/effacer/$1';
+
+
 
 /* Autres Routes */
 $route['default_controller'] = 'home/view';
