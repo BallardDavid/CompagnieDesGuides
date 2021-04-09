@@ -50,11 +50,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 
+/* Guide Routes */
+
 $route['guides/creer'] = 'guides/creer';
 $route['guides'] = 'guides/tous';
 $route['guides/creer'] = 'guides/creer';
 $route['guides/modifier/(:any)'] = 'guides/modifier/$1';
 $route['guides/effacer/(:any)'] = 'guides/effacer/$1';
+
+/* Abris Routes */
+
+$route['abris/creer'] = 'abris/creer';
+$route['abris'] = 'abris/tous';
+$route['abris/modifier/(:any)'] = 'abris/modifier/$1';
+$route['abris/effacer/(:any)'] = 'abris/effacer/$1';
+
 $route['employes'] = 'employes/tous';
 $route['default_controller'] = 'home/view';
 $route['404_override'] = '';
