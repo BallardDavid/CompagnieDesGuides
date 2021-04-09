@@ -7,7 +7,6 @@
   <body>
     <?php
       echo '<header>';
-      echo '<a href="/web/CompagnieDesGuides/index.php">Home</a>';
-
+      echo "<a href='http://".$_SERVER['SERVER_NAME']."/index.php'>Home</a>";
       echo '</header>';
     ?>

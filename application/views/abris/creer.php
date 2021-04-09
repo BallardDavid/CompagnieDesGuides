@@ -11,7 +11,11 @@
 
   <label for="Type d'abris">Type</label>
   <?php echo form_error('type_abris'); ?>
-  <input type="text" name="type_abris" value="<?php echo set_value('type_abris'); ?>" />
+  <select name="type_abris">
+    <option value="<?php echo set_value('type_abris'); ?>"selected></option>
+    <option value="refuge">Refuge</option>
+    <option value="cabane">Cabane</option>
+  </select>
   
   <label for="Altitude">Altitude</label>
   <?php echo form_error('altitude'); ?>

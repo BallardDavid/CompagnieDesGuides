@@ -30,8 +30,8 @@
     echo "<td>".$c->prixRepas_Abris."</td>";
     echo "<td>".$c->telGardien_Abris."</td>";
     echo "<td>".$c->code_Vallees."</td>";
-    echo "<td> <a class='btn' href='abris/modifier/".$c->code_Abris."'>Modifier</a></td>";
-    echo "<td> <a class='btn' href='abris/effacer/".$c->code_Abris."'>Effacer</a></td>";
+    echo "<td> <a class='btn' href='http://".$_SERVER['SERVER_NAME']."/index.php/abris/modifier/".$c->code_Abris."'>Modifier</a></td>";
+    echo "<td> <a class='btn' href='http://".$_SERVER['SERVER_NAME']."/index.php/abris/effacer/".$c->code_Abris."'>Effacer</a></td>";
     echo "</tr>";
   }
 ?>

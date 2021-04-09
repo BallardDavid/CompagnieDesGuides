@@ -11,8 +11,7 @@ class Abris_model extends CI_Model{
   }
 
   public function getById($id){
-    $id =  mysql_real_escape_string($id);
-    $sql = "SELECT * FROM employes WHERE matricule = ".$id.";";
+    $sql = "SELECT * FROM abris WHERE code_Abris = ".$id.";";
     $query = $this->db->query($sql);
     return $query->result();
   }
@@ -23,7 +22,7 @@ class Abris_model extends CI_Model{
   }
 
   public function update($id, $nom, $type_Abris, $altitude, $places_Abris, $prixNuit, $prixRepas, $telGardien, $codeVallee){
-    $data = array('nom_Abris'=>$nom, 'type_Abris'=>$type_Abris, 'altitude_Abris'=>$altitude, 'places_Abris'=>$places_Abris, 'prixNuit_Abris'=>$prixNuit, 'prixRepas_Abris'=>$prixRepas, 'telGardien_Abris'=>$telGardien, 'code_Vallees'=>$codeVallees);
+    $data = array('nom_Abris'=>$nom, 'type_Abris'=>$type_Abris, 'altitude_Abris'=>$altitude, 'places_Abris'=>$places_Abris, 'prixNuit_Abris'=>$prixNuit, 'prixRepas_Abris'=>$prixRepas, 'telGardien_Abris'=>$telGardien, 'code_Vallees'=>$codeVallee);
     $this->db->where('code_Abris',$id);
     return $this->db->update('abris',$data);
   }
