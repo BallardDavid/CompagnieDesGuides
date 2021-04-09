@@ -1,12 +1,12 @@
 <?php
-  // echo '<h2>'.$titre.'</h2>';
+  echo '<h2>'.$titre.'</h2>';
 
   // foreach ($guides as $c){
   //   echo $c->codeC." ".$c->nomC."<br>";
   // }
   // echo '<br>';
 
-  // echo form_open('guides/creer'); //Ouvre la balise form et crée la cible vers la route employes/creer
+  echo form_open('guides/creer'); //Ouvre la balise form et crée la cible vers la route employes/creer
 ?>
 
   <label for="nom">Nom</label>
