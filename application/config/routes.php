@@ -71,6 +71,14 @@ $route['sommets'] = 'sommets/tous';
 $route['sommets/modifier/(:any)'] = 'sommets/modifier/$1';
 $route['sommets/effacer/(:any)'] = 'sommets/effacer/$1';
 
+/* Vallees Routes */
+
+$route['vallees/creer'] = 'vallees/creer';
+$route['vallees'] = 'vallees/tous';
+$route['vallees/modifier/(:any)'] = 'vallees/modifier/$1';
+$route['vallees/effacer/(:any)'] = 'vallees/effacer/$1';
+
+
 /* Autres Routes */
 $route['default_controller'] = 'home/view';
 $route['404_override'] = '';
