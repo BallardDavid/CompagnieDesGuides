@@ -60,6 +60,7 @@ $route['guides/effacer/(:any)'] = 'guides/effacer/$1';
 /* Abris Routes */
 
 $route['abris/creer'] = 'abris/creer';
+$route['abris/add'] = 'abris/add';
 $route['abris'] = 'abris/tous';
 $route['abris/modifier/(:any)'] = 'abris/modifier/$1';
 $route['abris/effacer/(:any)'] = 'abris/effacer/$1';
