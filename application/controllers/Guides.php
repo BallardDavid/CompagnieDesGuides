@@ -41,7 +41,7 @@ class Guides extends CI_Controller{
       $this->Guides_model->create($nom,$prenom,$email,$mdp);
     }
 
-    //$data['guides'] = $this->Guides_model->get();
+    $data['guides'] = $this->Guides_model->getAll();
 
     $this->load->view('header', $data);
     $this->load->view('guides/creer', $data);
