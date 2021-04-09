@@ -52,7 +52,7 @@ class Guides extends CI_Controller{
     $this->load->helper('form');
     $this->load->library('form_validation');
 
-    $data['titre'] = 'Creer un guide';
+    $data['titre'] = 'Modifier un guide';
     $this->form_validation->set_rules('code_Guides', 'Code_Guides', 'required');
     $this->form_validation->set_rules('nom', 'Nom', 'required');
     $this->form_validation->set_rules('prenom', 'Prenom', 'required');
@@ -69,6 +69,15 @@ class Guides extends CI_Controller{
     $data['guides'] = $this->Guides_model->get($id);
     $this->load->view('header', $data);
     $this->load->view('guides/modifier', $data);
+    $this->load->view('footer');
+  }
+  public function effacer($id){
+    $this->Guides_model->delete($id);
+    $data['guides'] = $this->Guides_model->getAll();
+    $data['titre'] = 'Les guides sont';
+
+    $this->load->view('header', $data);
+    $this->load->view('guides/tous', $data);
     $this->load->view('footer');
   }
 }

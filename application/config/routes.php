@@ -54,6 +54,7 @@ $route['guides/creer'] = 'guides/creer';
 $route['guides'] = 'guides/tous';
 $route['guides/creer'] = 'guides/creer';
 $route['guides/modifier/(:any)'] = 'guides/modifier/$1';
+$route['guides/effacer/(:any)'] = 'guides/effacer/$1';
 $route['employes'] = 'employes/tous';
 $route['default_controller'] = 'home/view';
 $route['404_override'] = '';
