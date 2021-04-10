@@ -1,7 +1,7 @@
 <?php
-  echo '<h2>Liste des abris</h2>';
+  echo "<h2 class='text-center'>Liste des abris</h2>";
 ?>
-<table>
+<table class="table table-striped table-responsive-lg">
     <thead>
         <tr>
             <th>Code</th>
@@ -21,7 +21,7 @@
 <?php
   foreach ($abris as $c){
     echo "<tr>";
-    echo "<td>".$c->code_Abris."</td>";
+    echo "<th scope='row'>".$c->code_Abris."</th>";
     echo "<td>".$c->nom_Abris."</td>";
     echo "<td>".$c->type_Abris."</td>";
     echo "<td>".$c->altitude_Abris."</td>";
@@ -30,8 +30,8 @@
     echo "<td>".$c->prixRepas_Abris."</td>";
     echo "<td>".$c->telGardien_Abris."</td>";
     echo "<td>".$c->code_Vallees."</td>";
-    echo "<td> <a class='btn' href='http://".$_SERVER['SERVER_NAME']."/index.php/abris/modifier/".$c->code_Abris."'>Modifier</a></td>";
-    echo "<td> <a class='btn' href='http://".$_SERVER['SERVER_NAME']."/index.php/abris/effacer/".$c->code_Abris."'>Effacer</a></td>";
+    echo "<td> <a class='btn btn-warning btn-sm' href='http://".$_SERVER['SERVER_NAME']."/index.php/abris/modifier/".$c->code_Abris."'>Modifier</a></td>";
+    echo "<td> <a class='btn btn-danger btn-sm' href='http://".$_SERVER['SERVER_NAME']."/index.php/abris/effacer/".$c->code_Abris."'>Effacer</a></td>";
     echo "</tr>";
   }
 ?>
