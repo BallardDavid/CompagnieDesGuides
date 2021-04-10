@@ -86,7 +86,10 @@ $route['ascensions'] = 'ascensions/tous';
 $route['ascensions/modifier/(:any)/(:any)'] = 'ascensions/modifier/$1/$2';
 $route['ascensions/effacer/(:any)/(:any)'] = 'ascensions/effacer/$1/$2';
 
+/* Rando Routes */
 
+$route['randonnees'] = 'rando/tous';
+$route['randonnees/(:any)'] = 'rando/parid/$1';
 
 /* Autres Routes */
 $route['default_controller'] = 'home/view';
