@@ -70,14 +70,15 @@ class Ascensions extends CI_Controller{
     $this->form_validation->set_rules('code_Abris', 'Code_Abris', 'required');
     $this->form_validation->set_rules('difficulte_Ascension', 'Difficulte_Ascension', 'required');
     $this->form_validation->set_rules('duree_Ascension', 'Duree_Ascension', 'required');
-
+    
+    $data['ascensions'] = $this->Ascensions_model->get($code_Sommets,$code_Abris);
 
     if ($this->form_validation->run() === TRUE){
       $code_Sommets = $this->input->post('code_Sommets');
       $code_Abris = $this->input->post('code_Abris');
       $difficulte_Ascension = $this->input->post('difficulte_Ascension');
       $duree_Ascension = $this->input->post('duree_Ascension');
-      $this->Ascensions_model->update($code_Sommets,$code_Abris,$difficulte_Ascension,$duree_Ascension);
+      $this->Ascensions_model->update($data['ascensions'][0]->code_Sommets,$data['ascensions'][0]->code_Abris,$code_Sommets,$code_Abris,$difficulte_Ascension,$duree_Ascension);
     }
     
     $data['ascensions'] = $this->Ascensions_model->get($code_Sommets,$code_Abris);

@@ -75,13 +75,11 @@ class Guides extends CI_Controller{
   public function effacer($id){
     $this->load->model('Guides_model');
     $this->Guides_model->delete($id);
-    $data['guides'] = $this->Guides_model->getAll();
     $data['titre'] = 'Les guides sont';
-
+    $data['guides'] = $this->Guides_model->getAll();
     $this->load->view('header', $data);
     $this->load->view('guides/tous', $data);
     $this->load->view('footer');
-    $this->load->redirect('guides/tous'); 
   }
 }
 ?>

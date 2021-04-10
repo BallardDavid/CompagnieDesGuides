@@ -27,9 +27,7 @@
       }
     ?>
   </select>
-  <?php
-
-  ?>
+      
   <label for="difficulte_Ascension">difficulte Ascension</label>
   <select name="difficulte_Ascension" id="difficulte_Ascension">
     <?php

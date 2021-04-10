@@ -24,8 +24,8 @@ class Ascensions_model extends CI_Model{
     $data = array('code_Sommets'=>$code_Sommets,'code_Abris'=>$code_Abris,'difficulte_ascension'=>$difficulte_ascensions,'duree_Ascension'=>$duree_Ascension);
     return $this->db->insert('ascension', $data);
   }
-  public function update($id_S,$id_A,$difficulte_ascensions, $duree_Ascension){
-    $this->db->delete('ascension',array('code_Sommets'=>$id_S, 'code_Abris'=>$id_A));
+  public function update($id_S1,$id_A1,$id_S,$id_A,$difficulte_ascensions, $duree_Ascension){
+    $this->db->delete('ascension',array('code_Sommets'=>$id_S1, 'code_Abris'=>$id_A1));
     $data = array('code_Sommets'=>$id_S,'code_Abris'=>$id_A,'difficulte_ascension'=>$difficulte_ascensions,'duree_Ascension'=>$duree_Ascension);
     return $this->db->insert('ascension', $data);
   }
