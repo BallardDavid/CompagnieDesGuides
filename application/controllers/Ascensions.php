@@ -87,5 +87,14 @@ class Ascensions extends CI_Controller{
     $this->load->view('ascensions/modifier', $data);
     $this->load->view('footer');
   }
+  public function effacer($code_Sommets,$code_Abris){
+    $this->load->model('Ascensions_model');
+    $this->Ascensions_model->delete($code_Sommets,$code_Abris);
+    $data['titre'] = 'Les ascensions sont';
+    $data['ascensions'] = $this->Ascensions_model->getAll();
+    $this->load->view('header', $data);
+    $this->load->view('ascensions/tous', $data);
+    $this->load->view('footer');
+  }
 }
 ?>
