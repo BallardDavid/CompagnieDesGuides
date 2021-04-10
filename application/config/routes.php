@@ -83,8 +83,8 @@ $route['vallees/effacer/(:any)'] = 'vallees/effacer/$1';
 
 $route['ascensions/creer'] = 'ascensions/creer';
 $route['ascensions'] = 'ascensions/tous';
-$route['ascensions/modifier/(:any)'] = 'ascensions/modifier/$1';
-$route['ascensions/effacer/(:any)'] = 'ascensions/effacer/$1';
+$route['ascensions/modifier/(:any)/(:any)'] = 'ascensions/modifier/$1/$2';
+$route['ascensions/effacer/(:any)/(:any)'] = 'ascensions/effacer/$1/$2';
 
 
 

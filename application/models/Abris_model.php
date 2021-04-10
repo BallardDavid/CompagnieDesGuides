@@ -9,7 +9,6 @@ class Abris_model extends CI_Model{
     $query = $this->db->query($sql);
     return $query->result();
   }
-
   public function getById($id){
     $sql = "SELECT * FROM abris WHERE code_Abris = ".$id.";";
     $query = $this->db->query($sql);

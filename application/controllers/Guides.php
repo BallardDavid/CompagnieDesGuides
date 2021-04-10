@@ -81,6 +81,7 @@ class Guides extends CI_Controller{
     $this->load->view('header', $data);
     $this->load->view('guides/tous', $data);
     $this->load->view('footer');
+    $this->load->redirect('guides/tous'); 
   }
 }
 ?>
