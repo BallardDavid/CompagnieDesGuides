@@ -37,7 +37,7 @@ class Sommets extends CI_Controller{
     $this->load->helper('form');
     $this->load->library('form_validation');
 
-    $data['titre'] = 'Creer un sommet'
+    $data['titre'] = 'Creer un sommet';
     $this->form_validation->set_rules('nom_Sommets', 'Nom_Sommets', 'required|max_length[24]');
     $this->form_validation->set_rules('altitude_Sommets', 'Altitude_Sommets', 'required|max_length[24]|is_natural');
 

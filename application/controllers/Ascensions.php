@@ -35,7 +35,7 @@ class Ascensions extends CI_Controller{
 
     $data['sommets'] = $this->Sommets_model->getAll();
     $data['abris'] = $this->Abris_model->getAll();
-
+    //verifier existence des deux codes et aussi leurs doublons potentielles
     $this->form_validation->set_rules('code_Sommets', 'Code_Sommets', 'required');
     $this->form_validation->set_rules('code_Abris', 'Code_Abris', 'required');
     $this->form_validation->set_rules('difficulte_Ascension', 'Difficulte_Ascension', 'required|in_list[débutant,confirmé,expert]');
@@ -62,23 +62,45 @@ class Ascensions extends CI_Controller{
     $this->load->model('Abris_model');
     $this->load->helper('form');
     $this->load->library('form_validation');
-
-    $data['titre'] = 'Modifier une ascension';
+    $tab_Sommet = $this->Sommets_model->getAll();
+    $tab_Sommet_final = "";
+    $i = 0;
+    foreach($tab_Sommet as $ts){
+      $i++;
+      $tab_Sommet_final.=$ts->code_Sommets;
+      if($i != count($tab_Sommet)){
+        $tab_Sommet_final.=",";
+      }  
+    }
+    $tab_Abris = $this->Abris_model->getAll();
+    $tab_Abris_final = "";
+    $i = 0;
+    foreach($tab_Abris as $ts){
+      $i++;
+      $tab_Abris_final.=$ts->code_Abris;
+      if($i != count($tab_Abris)){
+        $tab_Abris_final.=",";
+      }  
+    }
+    $data['titre'] = $tab_Sommet_final;
+    //'Modifier une ascension';
     $data['sommets'] = $this->Sommets_model->getAll();
     $data['abris'] = $this->Abris_model->getAll();
-    $this->form_validation->set_rules('code_Sommets', 'Code_Sommets', 'required');
-    $this->form_validation->set_rules('code_Abris', 'Code_Abris', 'required');
+    //verifier existence des deux codes et aussi leurs doublons potentielle
+    // $this->Sommets_model->nbOccurence($str,$str1)[0]->occ==0){
+    $this->form_validation->set_rules('code_Sommets', 'Code_Sommets', 'required|in_list['.$tab_Sommet_final.']');
+    $this->form_validation->set_rules('code_Abris', 'Code_Abris', 'required|in_list['.$tab_Abris_final.']');
     $this->form_validation->set_rules('difficulte_Ascension', 'Difficulte_Ascension', 'required|in_list[débutant,confirmé,expert]');
     $this->form_validation->set_rules('duree_Ascension', 'Duree_Ascension', 'required|is_natural');
     
-    $data['ascensions'] = $this->Ascensions_model->get($code_Sommets,$code_Abris);
+    $donnees = $this->Ascensions_model->get($code_Sommets,$code_Abris);
 
     if ($this->form_validation->run() === TRUE){
       $code_Sommets = $this->input->post('code_Sommets');
       $code_Abris = $this->input->post('code_Abris');
       $difficulte_Ascension = $this->input->post('difficulte_Ascension');
       $duree_Ascension = $this->input->post('duree_Ascension');
-      $this->Ascensions_model->update($data['ascensions'][0]->code_Sommets,$data['ascensions'][0]->code_Abris,$code_Sommets,$code_Abris,$difficulte_Ascension,$duree_Ascension);
+      $this->Ascensions_model->update($donnees[0]->code_Sommets,$donnees[0]->code_Abris,$code_Sommets,$code_Abris,$difficulte_Ascension,$duree_Ascension);
     }
     
     $data['ascensions'] = $this->Ascensions_model->get($code_Sommets,$code_Abris);
