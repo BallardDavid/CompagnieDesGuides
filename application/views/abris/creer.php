@@ -38,9 +38,16 @@
   <?php echo form_error('tel_gardien'); ?>
   <input type="number" name="tel_gardien" value="<?php echo set_value('tel_gardien'); ?>"/>
 
-  <label for="Code la Vallée">Code de la Vallée</label>
+  <label for="Code de la Vallée">Code de la Vallée</label>
   <?php echo form_error('code_vallee'); ?>
-  <input type="number" name="code_vallee" value="<?php echo set_value('code_vallee'); ?>"/>
+  <select name="code_vallee">
+    <option value="<?php echo set_value('code_vallee'); ?>"><?php echo set_value('code_vallee'); ?></option>
+    <?php 
+    foreach ($vallees as $v){
+        echo "<option value=".$v->code_Vallees.">".$v->code_Vallees."</option>";
+    }
+    ?>
+  </select>
 
   <input type="submit" name="submit" value="Créer !" /><br>
 </form>

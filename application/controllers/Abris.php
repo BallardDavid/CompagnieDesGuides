@@ -3,6 +3,7 @@ class Abris extends CI_Controller{
   public function __construct(){
     parent::__construct();
     $this->load->model('Abris_model');
+    $this->load->model('Vallees_model');
   }
 
   public function tous(){
@@ -28,7 +29,7 @@ class Abris extends CI_Controller{
     $this->form_validation->set_rules('prix_nuit', 'Prix d\'une nuit', 'required|numeric'); 
     $this->form_validation->set_rules('prix_repas', 'Prix d\'un repas', 'numeric|callback_isRefuge');
     $this->form_validation->set_rules('tel_gardien', 'Téléphone du gardien', 'exact_length[10]|callback_isRefuge');
-    $this->form_validation->set_rules('code_vallee', 'Code de la Vallée', 'required|max_length[3]');
+    $this->form_validation->set_rules('code_vallee', 'Code de la Vallée', 'required|max_length[3]|callback_isVallee');
 
     if ($this->form_validation->run() === TRUE){
       $nom = $this->input->post('nom');
@@ -49,6 +50,7 @@ class Abris extends CI_Controller{
       }
     }
       $data['abris'] = $this->Abris_model->getById($id);
+      $data['vallees'] = $this->Vallees_model->getAll();
       $data['titre'] = "L'Abri' ".$id." est : ";
   
       $this->load->view('header', $data);
@@ -59,8 +61,10 @@ class Abris extends CI_Controller{
   }
 
   public function add(){
+    $data['vallees'] = $this->Vallees_model->getAll();
+
     $this->load->view('header');
-    $this->load->view('abris/creer');
+    $this->load->view('abris/creer', $data);
     $this->load->view('footer');
   }
 
@@ -75,7 +79,7 @@ class Abris extends CI_Controller{
     $this->form_validation->set_rules('prix_nuit', 'Prix d\'une nuit', 'required|numeric'); 
     $this->form_validation->set_rules('prix_repas', 'Prix d\'un repas', 'numeric|callback_isRefuge');
     $this->form_validation->set_rules('tel_gardien', 'Téléphone du gardien', 'exact_length[10]|callback_isRefuge');
-    $this->form_validation->set_rules('code_vallee', 'Code de la Vallée', 'required|max_length[3]');
+    $this->form_validation->set_rules('code_vallee', 'Code de la Vallée', 'required|max_length[3]|callback_isVallee');
 
     if ($this->form_validation->run() === TRUE){
       $nom = $this->input->post('nom');
@@ -102,8 +106,10 @@ class Abris extends CI_Controller{
 
     }
     else{
+      $data['vallees'] = $this->Vallees_model->getAll();
+
       $this->load->view('header');
-      $this->load->view('abris/creer');
+      $this->load->view('abris/creer', $data);
       $this->load->view('footer');
     }
   }
@@ -116,6 +122,17 @@ class Abris extends CI_Controller{
    else{
       return TRUE;
     }
+  }
+
+  public function isVallee($str){
+    $val = $this->Vallees_model->getAll();
+    foreach ($val as $v){
+        if ($v->code_Vallees == $str){
+          return TRUE;
+        }
+    }
+      $this->form_validation->set_message('isVallee', 'Cette vallée ne correspond à aucune vallée dans la base de donnée');
+      return FALSE;
   }
 
   public function update($id){
