@@ -19,7 +19,18 @@ class Ascensions_model extends CI_Model{
     $query = $this->db->query($sql);
     return $query->result();
   }
-
+  public function nbOccurence($id_S,$id_A){
+    //SQL standard
+    $sql = "select count(*) as occ from ascension where ascension.code_Sommets = ".$id_S." and ascension.code_Abris = ".$id_A.";";
+    $query = $this->db->query($sql);
+    return $query->result();
+  }
+  public function nbOccurenceModif($id_S,$id_A,$id_S_A,$id_A_A){
+    //SQL standard
+    $sql = "select count(*) as occ from ascension where ascension.code_Sommets = ".$id_S." and ascension.code_Abris = ".$id_A." and ascension.code_Sommets != ".$id_S_A." and ascension.code_Abris != ".$id_A_A.";";
+    $query = $this->db->query($sql);
+    return $query->result();
+  }
   public function create($code_Sommets,$code_Abris,$difficulte_ascensions, $duree_Ascension){
     $data = array('code_Sommets'=>$code_Sommets,'code_Abris'=>$code_Abris,'difficulte_ascension'=>$difficulte_ascensions,'duree_Ascension'=>$duree_Ascension);
     return $this->db->insert('ascension', $data);

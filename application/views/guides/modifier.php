@@ -17,5 +17,6 @@
     echo '<input type="text" name="mdp" value="'.$c->motdepasse_Guides.'"/>';
     }
 ?>
+    <span><?php echo $erreur;?></span>
   <input type="submit" name="submit" value="Modifier !" />
 </form>

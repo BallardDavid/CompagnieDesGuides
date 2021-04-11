@@ -1,4 +1,5 @@
 <?php
+  echo '<h2>'.$titre.'</h2>';
   foreach ($ascensions as $c){
     echo form_open('ascensions/modifier/'.$c->code_Sommets.'/'.$c->code_Abris); 
   }
@@ -43,5 +44,6 @@
   </select>
   <label for="duree_Ascension">duree Ascension (min)</label>
   <input type="number" id="duree_Ascension" name="duree_Ascension" value="<?php echo $ascensions[0]->duree_Ascension;?>">
+  <span><?php echo $erreur;?></span>
   <input type="submit" name="submit" value="Créer !" />
 </form>

@@ -34,7 +34,7 @@ class Vallees extends CI_Controller{
     $this->form_validation->set_rules('nom_Vallees', 'Nom_Vallees', 'required|max_length[24]|is_unique[vallees.nom_Vallees]',array('is_unique'=>'%s existe déjà -  !'));
 
     if ($this->form_validation->run() === TRUE){
-      $nom = $this->input->post('nom_Vallees');
+      $nom = trim($this->input->post('nom_Vallees'));
       $this->Vallees_model->create($nom);
     }
 
@@ -53,7 +53,7 @@ class Vallees extends CI_Controller{
     $this->form_validation->set_rules('nom_Vallees', 'Nom_Vallees', 'required|max_length[24]|is_unique[vallees.nom_Vallees]',array('is_unique'=>'%s existe déjà -  !'));
     if ($this->form_validation->run() === TRUE){
       $id = $this->input->post('code_Vallees');
-      $nom = $this->input->post('nom_Vallees');
+      $nom = trim($this->input->post('nom_Vallees'));
       $this->Vallees_model->update($id,$nom);
     }
     $data['vallees'] = $this->Vallees_model->get($id);

@@ -21,6 +21,6 @@
   <label for="mdp">Mdp</label>
   <?php echo form_error('mdp');?>
   <input type="text" name="mdp" />
-
+  <span><?php echo $erreur;?></span>
   <input type="submit" name="submit" value="Créer !" />
 </form>

@@ -9,5 +9,6 @@
     echo '<input type="text" name="altitude_Sommets" value="'.$c->altitude_Sommets.'" />';
     }
 ?>
+  <span><?php echo $erreur;?></span>
   <input type="submit" name="submit" value="Modifier !" />
 </form>
