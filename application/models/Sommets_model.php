@@ -19,7 +19,12 @@ class Sommets_model extends CI_Model{
     $query = $this->db->query($sql);
     return $query->result();
   }
-
+  public function nbOccurence($nom_Sommets, $altitude_Sommets){
+    //SQL standard
+    $sql = "select count(*) as occ from sommets where altitude_Sommets = ".$altitude_Sommets." and nom_Sommets = '".$nom_Sommets."';";
+    $query = $this->db->query($sql);
+    return $query->result();
+  }
   public function create($nom_Sommets, $altitude_Sommets){
     $data = array('nom_Sommets'=>$nom_Sommets, 'altitude_Sommets'=>$altitude_Sommets);
     return $this->db->insert('sommets', $data);

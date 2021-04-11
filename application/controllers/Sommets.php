@@ -23,16 +23,23 @@ class Sommets extends CI_Controller{
     $this->load->view('sommets/tous', $data);
     $this->load->view('footer');
   }
-
+  public function occ($str,$str1){
+    $this->load->model('Sommets_model');
+    if ($this->Sommets_model->nbOccurence($str,$str1)[0]->occ==0){
+      return TRUE;
+    } else {
+      $this->form_validation->set_message('occ', 'Le sommet, à cette altitude, est déjà pris');
+      return FALSE;
+    }
+  }
   public function creer(){
     $this->load->model('Sommets_model');
     $this->load->helper('form');
     $this->load->library('form_validation');
 
-    $data['titre'] = 'Creer un sommet';
-
-    $this->form_validation->set_rules('nom_Sommets', 'Nom_Sommets', 'required');
-    $this->form_validation->set_rules('altitude_Sommets', 'Altitude_Sommets', 'required');
+    $data['titre'] = 'Creer un sommet'
+    $this->form_validation->set_rules('nom_Sommets', 'Nom_Sommets', 'required|max_length[24]');
+    $this->form_validation->set_rules('altitude_Sommets', 'Altitude_Sommets', 'required|max_length[24]|is_natural');
 
     if ($this->form_validation->run() === TRUE){
       $nom = $this->input->post('nom_Sommets');
@@ -53,8 +60,8 @@ class Sommets extends CI_Controller{
 
     $data['titre'] = 'Modifier un sommet';
     $this->form_validation->set_rules('code_Sommets', 'Code_Sommets', 'required');
-    $this->form_validation->set_rules('nom_Sommets', 'Nom_Sommets', 'required');
-    $this->form_validation->set_rules('altitude_Sommets', 'Altitude_Sommets', 'required');
+    $this->form_validation->set_rules('nom_Sommets', 'Nom_Sommets', 'required|max_length[24]');
+    $this->form_validation->set_rules('altitude_Sommets', 'Altitude_Sommets', 'required|max_length[24]|is_natural');
     if ($this->form_validation->run() === TRUE){
       $id = $this->input->post('code_Sommets');
       $nom = $this->input->post('nom_Sommets');

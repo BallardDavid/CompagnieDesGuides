@@ -19,7 +19,6 @@ class Vallees_model extends CI_Model{
     $query = $this->db->query($sql);
     return $query->result();
   }
-
   public function create($nom_vallees){
     $data = array('nom_vallees'=>$nom_vallees);
     return $this->db->insert('vallees', $data);

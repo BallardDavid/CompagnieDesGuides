@@ -31,7 +31,7 @@ class Vallees extends CI_Controller{
 
     $data['titre'] = 'Creer une vallee';
 
-    $this->form_validation->set_rules('nom_Vallees', 'Nom_Vallees', 'required');
+    $this->form_validation->set_rules('nom_Vallees', 'Nom_Vallees', 'required|max_length[24]|is_unique[vallees.nom_Vallees]',array('is_unique'=>'%s existe déjà -  !'));
 
     if ($this->form_validation->run() === TRUE){
       $nom = $this->input->post('nom_Vallees');
@@ -39,7 +39,6 @@ class Vallees extends CI_Controller{
     }
 
     $data['vallees'] = $this->Vallees_model->getAll();
-
     $this->load->view('header', $data);
     $this->load->view('vallees/creer', $data);
     $this->load->view('footer');
@@ -51,7 +50,7 @@ class Vallees extends CI_Controller{
 
     $data['titre'] = 'Modifier une vallée';
     $this->form_validation->set_rules('code_Vallees', 'Code_Vallees', 'required');
-    $this->form_validation->set_rules('nom_Vallees', 'Nom_Vallees', 'required');
+    $this->form_validation->set_rules('nom_Vallees', 'Nom_Vallees', 'required|max_length[24]|is_unique[vallees.nom_Vallees]',array('is_unique'=>'%s existe déjà -  !'));
     if ($this->form_validation->run() === TRUE){
       $id = $this->input->post('code_Vallees');
       $nom = $this->input->post('nom_Vallees');

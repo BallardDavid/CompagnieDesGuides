@@ -29,10 +29,10 @@ class Guides extends CI_Controller{
 
     $data['titre'] = 'Creer un guide';
 
-    $this->form_validation->set_rules('nom', 'Nom', 'required');
-    $this->form_validation->set_rules('prenom', 'Prenom', 'required');
-    $this->form_validation->set_rules('email', 'Email', 'required');
-    $this->form_validation->set_rules('mdp', 'Mdp', 'required');
+    $this->form_validation->set_rules('nom', 'Nom', 'required|max_length[24]');
+    $this->form_validation->set_rules('prenom', 'Prenom', 'required|max_length[24]');
+    $this->form_validation->set_rules('email', 'Email', 'required|max_length[100]|is_unique[guides.email_Guides]|valid_email',array('is_unique'=>'%s existe déjà -  !'));
+    $this->form_validation->set_rules('mdp', 'Mdp', 'required|max_length[24]');
     if ($this->form_validation->run() === TRUE){
       $nom = $this->input->post('nom');
       $prenom = $this->input->post('prenom');
@@ -42,7 +42,6 @@ class Guides extends CI_Controller{
     }
 
     $data['guides'] = $this->Guides_model->getAll();
-
     $this->load->view('header', $data);
     $this->load->view('guides/creer', $data);
     $this->load->view('footer');
@@ -52,13 +51,13 @@ class Guides extends CI_Controller{
     $this->load->model('Guides_model');
     $this->load->helper('form');
     $this->load->library('form_validation');
-
+    //Faire verif présence mail, is_unique ne marchant pas ici
     $data['titre'] = 'Modifier un guide';
     $this->form_validation->set_rules('code_Guides', 'Code_Guides', 'required');
-    $this->form_validation->set_rules('nom', 'Nom', 'required');
-    $this->form_validation->set_rules('prenom', 'Prenom', 'required');
-    $this->form_validation->set_rules('email', 'Email', 'required');
-    $this->form_validation->set_rules('mdp', 'Mdp', 'required');
+    $this->form_validation->set_rules('nom', 'Nom', 'required|max_length[24]');
+    $this->form_validation->set_rules('prenom', 'Prenom', 'required|max_length[24]');
+    $this->form_validation->set_rules('email', 'Email', 'required|max_length[24]|valid_email'));
+    $this->form_validation->set_rules('mdp', 'Mdp', 'required|max_length[24]');
     if ($this->form_validation->run() === TRUE){
       $id = $this->input->post('code_Guides');
       $nom = $this->input->post('nom');

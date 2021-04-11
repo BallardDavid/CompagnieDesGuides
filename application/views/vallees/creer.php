@@ -8,8 +8,8 @@
   echo form_open('vallees/creer'); 
 ?>
 
-  <label for="nom">nom vallees</label>
+  <label for="nom_Vallees">nom vallees</label>
+  <?php echo form_error('nom_Vallees');?>
   <input type="text" name="nom_Vallees" />
-
   <input type="submit" name="submit" value="Créer !" />
 </form>

@@ -80,7 +80,7 @@ class Abris extends CI_Controller{
     $this->form_validation->set_rules('prix_repas', 'Prix d\'un repas', 'numeric|callback_isRefuge');
     $this->form_validation->set_rules('tel_gardien', 'Téléphone du gardien', 'exact_length[10]|callback_isRefuge');
     $this->form_validation->set_rules('code_vallee', 'Code de la Vallée', 'required|max_length[3]|callback_isVallee');
-
+    
     if ($this->form_validation->run() === TRUE){
       $nom = $this->input->post('nom');
       $type = $this->input->post('type_abris');

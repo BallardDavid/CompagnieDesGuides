@@ -4,12 +4,16 @@
     echo form_open('guides/modifier/'.$c->code_Guides); //Ouvre la balise form et crée la cible vers la route employes/creer
     echo'<input type="text" name="code_Guides" value="'.$c->code_Guides.'" hidden/>';
     echo '<label for="nom">Nom</label>';
+    echo form_error('nom');
     echo'<input type="text" name="nom" value="'.$c->nom_Guides.'" />';
     echo '<label for="prenom">Prenom</label>';
+    echo form_error('prenom');
     echo '<input type="text" name="prenom" value="'.$c->prenom_Guides.'" />';
     echo '<label for="email">Email</label>';
+    echo form_error('email');
     echo '<input type="text" name="email" value="'.$c->email_Guides.'"/>';
     echo '<label for="mdp">Mdp</label>';
+    echo form_error('mdp');
     echo '<input type="text" name="mdp" value="'.$c->motdepasse_Guides.'"/>';
     }
 ?>

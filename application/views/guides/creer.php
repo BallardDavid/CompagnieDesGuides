@@ -10,12 +10,16 @@
 ?>
 
   <label for="nom">Nom</label>
+  <?php echo form_error('nom');?>
   <input type="text" name="nom" />
   <label for="prenom">Prenom</label>
+  <?php echo form_error('prenom');?>
   <input type="text" name="prenom" />
   <label for="email">Email</label>
+  <?php echo form_error('email');?>
   <input type="text" name="email" />
   <label for="mdp">Mdp</label>
+  <?php echo form_error('mdp');?>
   <input type="text" name="mdp" />
 
   <input type="submit" name="submit" value="Créer !" />
