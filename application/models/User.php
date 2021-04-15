@@ -20,11 +20,5 @@ class User extends CI_Model {
         return false;
       }
     }
-
-      if ( $q->result() > 0 ) {
-         // person has account with us
-         return $q->row();
-      }
-      return false;
   }
 }
