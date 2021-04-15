@@ -26,7 +26,7 @@
 <div class="col-6 border-left mt-4">
   <h2>Les Vallées</h2>
   <a class="btn btn-primary btn-lg btn-lg btn-block" href="index.php/vallees">Tous</a>
-  <a class="btn btn-secondary btn-lg btn-lg btn-block" href="index.php/vallees/creer">Ajouter un sommet</a>
+  <a class="btn btn-secondary btn-lg btn-lg btn-block" href="index.php/vallees/creer">Ajouter une vallée</a>
   </div>
 <div class="col-6 border-left mt-4">
   <h2>Les Ascensions</h2>
@@ -37,4 +37,4 @@
 </div>
 
 
-  echo '<a href="index.php/sommets/creer">Ajouter un sommet</a><br>';
+  

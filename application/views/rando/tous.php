@@ -1,7 +1,7 @@
 <?php
-  echo '<h2>Liste des randonnées</h2>';
+  echo "<h2 class='text-center'>Liste des randonnées</h2>";
 ?>
-<table>
+<table class="table table-striped table-responsive-lg">
     <thead>
         <tr>
             <th>Code</th>
@@ -16,12 +16,12 @@
 <?php
   foreach ($rando as $c){
     echo "<tr>";
-    echo "<td>".$c->code_Randonnees."</td>";
+    echo "<th scope='row'>".$c->code_Randonnees."</th>";
     echo "<td>".$c->nbPersonnes_Randonnees."</td>";
     echo "<td>".$c->dateDebut_Randonnees."</td>";
     echo "<td>".$c->dateFin_Randonnees."</td>";
     echo "<td>".$c->code_Guides."</td>";
-    echo "<td> <a class='btn' href='http://".$_SERVER['SERVER_NAME']."/index.php/randonnees/".$c->code_Randonnees."'>Plus de détails</a></td>";
+    echo "<td> <a <a class='btn btn-info btn-sm' href='http://".$_SERVER['SERVER_NAME']."/index.php/randonnees/".$c->code_Randonnees."'>Plus de détails</a></td>";
     echo "</tr>";
   }
 ?>

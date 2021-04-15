@@ -7,7 +7,7 @@ class Guides extends CI_Controller{
 
   public function tous(){
     $data['guides'] = $this->Guides_model->getAll();
-    $data['titre'] = 'Les guides sont';
+    $data['titre'] = 'Liste des guides';
 
     $this->load->view('header', $data);
     $this->load->view('guides/tous', $data);

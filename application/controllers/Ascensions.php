@@ -7,7 +7,7 @@ class Ascensions extends CI_Controller{
   public function tous(){
     $this->load->model('Ascensions_model');
     $data['ascensions'] = $this->Ascensions_model->getAll();
-    $data['titre'] = 'Les Ascensions sont';
+    $data['titre'] = 'Liste des Ascensions';
 
     $this->load->view('header', $data);
     $this->load->view('ascensions/tous', $data);
@@ -62,10 +62,10 @@ class Ascensions extends CI_Controller{
     $data['sommets'] = $this->Sommets_model->getAll();
     $data['abris'] = $this->Abris_model->getAll();
     //verifier existence des deux codes et aussi leurs doublons potentielles
-    $this->form_validation->set_rules('code_Sommets', 'Code_Sommets', 'required|in_list['.$tab_Sommet_final.']');
-    $this->form_validation->set_rules('code_Abris', 'Code_Abris', 'required|in_list['.$tab_Abris_final.']');
-    $this->form_validation->set_rules('difficulte_Ascension', 'Difficulte_Ascension', 'required|in_list[débutant,confirmé,expert]');
-    $this->form_validation->set_rules('duree_Ascension', 'Duree_Ascension', 'required|is_natural');
+    $this->form_validation->set_rules('code_Sommets', 'Code du sommet', 'required|in_list['.$tab_Sommet_final.']');
+    $this->form_validation->set_rules('code_Abris', 'Code de l\'abris', 'required|in_list['.$tab_Abris_final.']');
+    $this->form_validation->set_rules('difficulte_Ascension', 'Difficulté de l\'ascension', 'required|in_list[débutant,confirmé,expert]');
+    $this->form_validation->set_rules('duree_Ascension', 'Durée de l\'ascension', 'required|is_natural');
 
 
     if ($this->form_validation->run() === TRUE){

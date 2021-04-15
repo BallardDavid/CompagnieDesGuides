@@ -7,7 +7,7 @@ class Vallees extends CI_Controller{
   public function tous(){
     $this->load->model('Vallees_model');
     $data['vallees'] = $this->Vallees_model->getAll();
-    $data['titre'] = 'Les Vallees sont';
+    $data['titre'] = 'Liste des Vallées';
 
     $this->load->view('header', $data);
     $this->load->view('vallees/tous', $data);
@@ -65,7 +65,7 @@ class Vallees extends CI_Controller{
     $this->load->model('Vallees_model');
     $this->Vallees_model->delete($id);
     $data['vallees'] = $this->Vallees_model->getAll();
-    $data['titre'] = 'Les Vallees sont';
+    $data['titre'] = 'Liste des Vallées';
 
     $this->load->view('header', $data);
     $this->load->view('vallees/tous', $data);

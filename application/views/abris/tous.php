@@ -1,5 +1,6 @@
 <?php
   echo "<h2 class='text-center'>Liste des abris</h2>";
+  $this->load->helper('form');
 ?>
 <table class="table table-striped table-responsive-lg">
     <thead>

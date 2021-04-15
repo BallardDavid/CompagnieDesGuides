@@ -22,7 +22,7 @@ class Abris extends CI_Controller{
 
     if (!empty($_POST)){
 
-    $this->form_validation->set_rules('nom', 'Nom de l\'abris', 'required|max_length[24]');
+    $this->form_validation->set_rules('nom', 'Nom de l\'abris', 'required|max_length[24]|alpha_numeric_spaces');
     $this->form_validation->set_rules('type_abris', 'Type d\'abris', 'in_list[refuge,cabane]');
     $this->form_validation->set_rules('altitude', 'Altitude', 'required|is_natural');
     $this->form_validation->set_rules('nb_places', 'Nombre de places', 'required|is_natural');
@@ -72,11 +72,31 @@ class Abris extends CI_Controller{
     $this->load->helper('form');
     $this->load->library('form_validation');
 
-    $this->form_validation->set_rules('nom', 'Nom de l\'abris', 'required|max_length[24]');
-    $this->form_validation->set_rules('type_abris', 'Type d\'abris', 'in_list[refuge,cabane]');
-    $this->form_validation->set_rules('altitude', 'Altitude', 'required|is_natural');
-    $this->form_validation->set_rules('nb_places', 'Nombre de places', 'required|is_natural');
-    $this->form_validation->set_rules('prix_nuit', 'Prix d\'une nuit', 'required|numeric'); 
+    $this->form_validation->set_rules('nom', 'Nom de l\'abris', 'required|max_length[24]', 
+    array(
+      'required'      => 'Vous devez mettre une valeur pour %s.',
+      'max_length'     => 'La taille maximal pour le %s est 24 caractères'
+));
+    $this->form_validation->set_rules('type_abris', 'Type d\'abris', 'required|in_list[refuge,cabane]',
+    array(
+      'required'      => 'Vous devez mettre une valeur pour %s.'
+));
+    $this->form_validation->set_rules('altitude', 'Altitude', 'required|is_natural|max_length[4]',
+    array(
+      'required'      => 'Vous devez mettre une valeur pour %s.',
+      'is_natural'     => 'Pour l\'%s, veuillez mettre une valeur naturel',
+      'max_length'     => 'Pour l\'%s, veuillez mettre une valeur en dessous de 10000'
+));
+    $this->form_validation->set_rules('nb_places', 'Nombre de places', 'required|is_natural',
+    array(
+      'required'      => 'Vous devez mettre une valeur pour %s.',
+      'is_natural'     => 'Pour l\'%s, veuillez mettre une valeur naturel'
+));
+    $this->form_validation->set_rules('prix_nuit', 'Prix d\'une nuit', 'required|numeric',
+    array(
+      'required'      => 'Vous devez mettre une valeur pour %s.',
+      'is_natural'     => 'Pour l\'%s, veuillez mettre une valeur numérique'
+)); 
     $this->form_validation->set_rules('prix_repas', 'Prix d\'un repas', 'numeric|callback_isRefuge');
     $this->form_validation->set_rules('tel_gardien', 'Téléphone du gardien', 'exact_length[10]|callback_isRefuge');
     $this->form_validation->set_rules('code_vallee', 'Code de la Vallée', 'required|max_length[3]|callback_isVallee');
@@ -135,37 +155,5 @@ class Abris extends CI_Controller{
       return FALSE;
   }
 
-  public function update($id){
-    $this->load->helper('form');
-    $this->load->library('form_validation');
-
-    $data['titre'] = 'Modifier un guide';
-    $this->form_validation->set_rules('code_Abris', 'Code_Abris', 'required');
-    $this->form_validation->set_rules('nom', 'Nom', 'required');
-    $this->form_validation->set_rules('prenom', 'Prenom', 'required');
-    $this->form_validation->set_rules('email', 'Email', 'required');
-    $this->form_validation->set_rules('mdp', 'Mdp', 'required');
-    if ($this->form_validation->run() === TRUE){
-      $id = $this->input->post('code_Abris');
-      $nom = $this->input->post('nom');
-      $prenom = $this->input->post('prenom');
-      $email = $this->input->post('email');
-      $mdp = $this->input->post('mdp');
-      $this->Abris_model->update($id,$nom,$prenom,$email,$mdp);
-    }
-    $data['abris'] = $this->Abris_model->get($id);
-    $this->load->view('header', $data);
-    $this->load->view('abris/modifier', $data);
-    $this->load->view('footer');
-  }
-  public function effacer($id){
-    $this->Abris_model->delete($id);
-    $data['abris'] = $this->Abris_model->getAll();
-    $data['titre'] = 'Les abris sont';
-
-    $this->load->view('header', $data);
-    $this->load->view('abris/tous', $data);
-    $this->load->view('footer');
-  }
 }
 ?>

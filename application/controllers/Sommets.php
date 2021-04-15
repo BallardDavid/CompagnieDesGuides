@@ -37,8 +37,8 @@ class Sommets extends CI_Controller{
     $this->load->library('form_validation');
     $data['erreur'] = "";
     $data['titre'] = 'Creer un sommet';
-    $this->form_validation->set_rules('nom_Sommets', 'Nom_Sommets', 'required|max_length[24]');
-    $this->form_validation->set_rules('altitude_Sommets', 'Altitude_Sommets', 'required|max_length[24]|is_natural');
+    $this->form_validation->set_rules('nom_Sommets', 'Nom du sommet', 'required|max_length[24]');
+    $this->form_validation->set_rules('altitude_Sommets', 'Altitude du sommet', 'required|max_length[24]|is_natural');
 
     if ($this->form_validation->run() === TRUE){
       $nom = trim($this->input->post('nom_Sommets'));
@@ -96,7 +96,7 @@ class Sommets extends CI_Controller{
     $this->load->model('Sommets_model');
     $this->Sommets_model->delete($id);
     $data['sommets'] = $this->Sommets_model->getAll();
-    $data['titre'] = 'Les sommets sont';
+    $data['titre'] = 'La liste des sommets';
 
     $this->load->view('header', $data);
     $this->load->view('sommets/tous', $data);
