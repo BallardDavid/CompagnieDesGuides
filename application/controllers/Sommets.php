@@ -1,5 +1,5 @@
 <?php
-class Sommets extends CI_Controller{
+class Sommets extends MY_Controller{
   public function __construct(){
     parent::__construct();
   }

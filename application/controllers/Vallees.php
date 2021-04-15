@@ -1,5 +1,5 @@
 <?php
-class Vallees extends CI_Controller{
+class Vallees extends MY_Controller{
   public function __construct(){
     parent::__construct();
   }

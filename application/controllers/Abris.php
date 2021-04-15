@@ -1,5 +1,5 @@
 <?php
-class Abris extends CI_Controller{
+class Abris extends MY_Controller{
   public function __construct(){
     parent::__construct();
     $this->load->model('Abris_model');

@@ -1,5 +1,5 @@
 <?php
-class Ascensions extends CI_Controller{
+class Ascensions extends MY_Controller{
   public function __construct(){
     parent::__construct();
   }

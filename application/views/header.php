@@ -13,6 +13,9 @@
   <body>
     <?php
       echo '<header>';
-      echo "<a href='http://".$_SERVER['SERVER_NAME']."/index.php'>Home</a>";
+      echo "<div><a href='http://".$_SERVER['SERVER_NAME']."/index.php'>Home</a></div>";
+      if ($this->session->userdata("isAdmin")){
+      echo "<div><a href='http://".$_SERVER['SERVER_NAME']."/index.php/logout'>Se déconnecter</a></div>";
+      }
       echo '</header>';
     ?>

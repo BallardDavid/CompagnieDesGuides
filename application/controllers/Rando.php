@@ -1,5 +1,5 @@
 <?php
-class Rando extends CI_Controller{
+class Rando extends MY_Controller{
   public function __construct(){
     parent::__construct();
     $this->load->model('Rando_model');

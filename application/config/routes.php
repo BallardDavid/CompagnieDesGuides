@@ -92,6 +92,8 @@ $route['randonnees'] = 'rando/tous';
 $route['randonnees/(:any)'] = 'rando/parid/$1';
 
 /* Autres Routes */
-$route['default_controller'] = 'home/view';
+$route['default_controller'] = 'home/index';
+$route['login'] = 'admin';
+$route['logout'] = 'admin/logout';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

@@ -1,5 +1,5 @@
 <?php
-class Guides extends CI_Controller{
+class Guides extends MY_Controller{
   public function __construct(){
     parent::__construct();
     $this->load->model('Guides_model');

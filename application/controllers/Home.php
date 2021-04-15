@@ -1,9 +1,7 @@
 <?php
-class Home extends CI_Controller{
+class Home extends MY_Controller{
   function __construct() {
 		parent::__construct();
-    $this->load->library('session');
-		if(!$this->session->userdata('username')) redirect('admin');
 	  }
 
   public function view($page = 'menu'){
@@ -21,11 +19,10 @@ class Home extends CI_Controller{
   }
 
   public function index() {
+    $data['titre'] = "Menu";
+
 		$this->load->view('header');
-	
-		if($this->session->userdata('isadmin')) $this->load->view('login_view');
-		else $this->load->view('home');
-	
+		$this->load->view('home/menu', $data);
 		$this->load->view('footer');
 	  }
 }

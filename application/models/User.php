@@ -9,10 +9,17 @@ class User extends CI_Model {
 
     $sql = "SELECT * FROM users WHERE user_name = ?";
     $q = $this->db->query($sql, array($user_name));
-    $result = $q->result();
-
-    print_r($result);
-    print_r($result[0]->user_password);
+    if(empty($q->result())){
+      return false;
+    }
+    else{
+      $hash = $q->result()[0]->user_password;
+      if(password_verify($password, $hash)){
+        return true;
+      }else{
+        return false;
+      }
+    }
 
       if ( $q->result() > 0 ) {
          // person has account with us
