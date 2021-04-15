@@ -18,8 +18,13 @@ class Welcome extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function index()
-	{
-		$this->load->view('welcome_message');
-	}
+	public function index() {
+		$this->load->spark('php-activerecord/0.0.2');
+		$this->load->view('header');
+	
+		if($this->session->userdata('isadmin')) $this->load->view('admin_view');
+		else $this->load->view('portail_view');
+	
+		$this->load->view('footer');
+	  }
 }
